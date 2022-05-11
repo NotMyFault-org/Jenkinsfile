@@ -72,7 +72,6 @@ body:
     attributes:
       label: Plot Debugpaste
       description: Run `/plot debugpaste` in your console or ingame and provide the output link here.
-      : true
 
   - type: input
     attributes:

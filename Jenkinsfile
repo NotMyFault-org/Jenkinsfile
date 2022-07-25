@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
-            }
-        }
-        stage('Hello 2') {
-            steps {
-                echo 'Hello World 2'
+                git 'https://github.com/IntellectualSites/PlotSquared/'
+
+                withGradle {
+                    sh './gradlew clean build'
+                }
+
             }
         }
     }

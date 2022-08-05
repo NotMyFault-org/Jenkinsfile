@@ -1,8 +1,6 @@
 name: Bug report
 description: Create a report to help us improve
 labels: 'Requires Testing'
-assignees:
-  - NotMyFault-org/testing
 
 body:
   - type: markdown
@@ -20,21 +18,23 @@ body:
       options:
         - Paper
         - Spigot
-   
+    validations:
+      required: true
+
   - type: dropdown
     attributes:
       label: Server Version
       description: Which server version version you using? If your server version is not listed, it is not supported. Update to a supported version first.
       multiple: false
       options:
+        - '1.19.1'
+        - '1.19'
         - '1.18.2'
         - '1.18.1'
-        - '1.18'
         - '1.17.1'
         - '1.16.5'
-        - '1.15.2'
-        - '1.14.4'
-        - '1.13.2'
+    validations:
+      required: true
 
   - type: textarea
     attributes:
@@ -52,11 +52,15 @@ body:
         2. Click on '...'
         3. Scroll down to '...'
         4. See error
+    validations:
+      required: true
 
   - type: textarea
     attributes:
       label: Expected behaviour
       description: A clear and concise description of what you expected to happen.
+    validations:
+      required: true
 
   - type: textarea
     attributes:
@@ -72,12 +76,27 @@ body:
     attributes:
       label: Plot Debugpaste
       description: Run `/plot debugpaste` in your console or ingame and provide the output link here.
+    validations:
+      required: true
 
   - type: input
     attributes:
       label: PlotSquared Version
       description: What version of PlotSquared are you running? (`/version PlotSquared`)
       placeholder: "For example: PlotSquared version 5.13.11-Premium"
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Checklist
+      description: Make sure you have followed each of the steps outlined here.
+      options:
+        - label: I have included a Plot debugpaste.
+          required: true
+        - label: I am using the newest build from https://www.spigotmc.org/resources/77506/ and the issue still persists.
+          required: true
+
   - type: textarea
     attributes:
       label: Anything else?
